@@ -14,4 +14,4 @@ function isPalindrome(str) {
     })
 }
 
-console.log(isPalindrome('abba'));
+isPalindrome('abba');
