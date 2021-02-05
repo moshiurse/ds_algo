@@ -22,3 +22,5 @@ stack.add(2);
 stack.getLastElm();
 stack.remove();
 console.log(stack.getLastElm());
+
+module.exports = Stack;
