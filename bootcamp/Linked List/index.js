@@ -90,6 +90,61 @@ class LinkedList {
         }
         console.log(this.head);
     }
+
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+
+        while (node) {
+            if (index == count) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+
+        return null;
+    }
+
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+
+        if (index === 0) {
+            this.head = this.head.next;
+            console.log(this.head);
+            return;
+        }
+
+        const previous = this.getAt(index - 1);
+        if (!previous || !previous.next) {
+            return null;
+        }
+        previous.next = previous.next.next;
+
+        console.log(this.head);
+    }
+
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+            console.log(this.head);
+            return;
+        }
+
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            console.log(this.head);
+            return;
+        }
+
+        const previous = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, previous.next);
+        previous.next = node;
+        console.log(this.head);
+
+    }
 }
 
 let list = new LinkedList();
@@ -103,4 +158,7 @@ list.insertFirst('ccc');
 // list.removeFirst();
 // list.removeLast();
 // list.getLast();
-list.insertLast('aaaaaaaaa');
+// list.insertLast('aaaaaaaaa');
+// console.log(list.getAt(1));
+// list.removeAt(4);
+list.insertAt('asanbhag', 3);
