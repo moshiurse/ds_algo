@@ -21,8 +21,9 @@ function arrayChunk(array, size) {
 function arrayChunk(array, size) {
     const chunked = [];
     let index = 0;
+    const arraySize = array.length;
 
-    while (index < array.length) {
+    while (index < arraySize) {
         chunked.push(array.slice(index, index + size));
         index += size;
     }
